@@ -22,11 +22,13 @@
   flex-shrink: 0;
 }
 
-/* 印刷対象ページ：表内チェック（☐列）を大きく */
+/* 印刷対象ページ：表レイアウト */
 .printable-page .vp-doc table {
   width: 100%;
+  table-layout: fixed;
 }
 
+/* チェック列（2列目） */
 .printable-page .vp-doc table th:nth-child(2),
 .printable-page .vp-doc table td:nth-child(2) {
   min-width: 4.5em;
@@ -41,10 +43,69 @@
 .printable-page .vp-doc table th,
 .printable-page .vp-doc table td {
   padding: 0.55em 0.75em;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .printable-page .vp-doc table td:not(:nth-child(2)) {
   font-size: 1em;
+}
+
+/* 3列テーブル（確認項目 | 確認済 | 内容・備考） */
+.printable-page .vp-doc table:has(th:nth-child(3):last-child) th:nth-child(1),
+.printable-page .vp-doc table:has(th:nth-child(3):last-child) td:nth-child(1) {
+  width: 18%;
+}
+
+.printable-page .vp-doc table:has(th:nth-child(3):last-child) th:nth-child(2),
+.printable-page .vp-doc table:has(th:nth-child(3):last-child) td:nth-child(2) {
+  width: 8%;
+  min-width: 3.5em;
+}
+
+.printable-page .vp-doc table:has(th:nth-child(3):last-child) th:nth-child(3),
+.printable-page .vp-doc table:has(th:nth-child(3):last-child) td:nth-child(3) {
+  width: 74%;
+}
+
+/* 2列テーブル（項目 | 記録） */
+.printable-page .vp-doc table:has(th:nth-child(2):last-child):not(:has(th:nth-child(3))) th:nth-child(1),
+.printable-page .vp-doc table:has(th:nth-child(2):last-child):not(:has(th:nth-child(3))) td:nth-child(1) {
+  width: 28%;
+}
+
+.printable-page .vp-doc table:has(th:nth-child(2):last-child):not(:has(th:nth-child(3))) th:nth-child(2),
+.printable-page .vp-doc table:has(th:nth-child(2):last-child):not(:has(th:nth-child(3))) td:nth-child(2) {
+  width: 72%;
+  text-align: left;
+  font-size: 1em;
+}
+
+/* 5列テーブル（確認項目 | 確認済 | 確認者 | 日付 | 備考） */
+.printable-page .vp-doc table:has(th:nth-child(5):last-child) th:nth-child(1),
+.printable-page .vp-doc table:has(th:nth-child(5):last-child) td:nth-child(1) {
+  width: 16%;
+}
+
+.printable-page .vp-doc table:has(th:nth-child(5):last-child) th:nth-child(2),
+.printable-page .vp-doc table:has(th:nth-child(5):last-child) td:nth-child(2) {
+  width: 7%;
+  min-width: 3em;
+}
+
+.printable-page .vp-doc table:has(th:nth-child(5):last-child) th:nth-child(3),
+.printable-page .vp-doc table:has(th:nth-child(5):last-child) td:nth-child(3) {
+  width: 12%;
+}
+
+.printable-page .vp-doc table:has(th:nth-child(5):last-child) th:nth-child(4),
+.printable-page .vp-doc table:has(th:nth-child(5):last-child) td:nth-child(4) {
+  width: 12%;
+}
+
+.printable-page .vp-doc table:has(th:nth-child(5):last-child) th:nth-child(5),
+.printable-page .vp-doc table:has(th:nth-child(5):last-child) td:nth-child(5) {
+  width: 53%;
 }
 
 /* ===== 印刷ボタン ===== */
@@ -108,6 +169,26 @@
 
   .vp-doc {
     max-width: 100% !important;
+  }
+
+  .printable-page .vp-doc table {
+    width: 100% !important;
+    table-layout: fixed;
+  }
+
+  .printable-page .vp-doc table:has(th:nth-child(3):last-child) th:nth-child(3),
+  .printable-page .vp-doc table:has(th:nth-child(3):last-child) td:nth-child(3) {
+    width: 74% !important;
+  }
+
+  .printable-page .vp-doc table:has(th:nth-child(2):last-child):not(:has(th:nth-child(3))) th:nth-child(2),
+  .printable-page .vp-doc table:has(th:nth-child(2):last-child):not(:has(th:nth-child(3))) td:nth-child(2) {
+    width: 72% !important;
+  }
+
+  .printable-page .vp-doc table:has(th:nth-child(5):last-child) th:nth-child(5),
+  .printable-page .vp-doc table:has(th:nth-child(5):last-child) td:nth-child(5) {
+    width: 53% !important;
   }
 
   .vp-doc ul.contains-task-list .task-list-item input[type="checkbox"] {
