@@ -1,0 +1,144 @@
+/* ===== チェックボックス（タスクリスト） ===== */
+.vp-doc ul.contains-task-list {
+  padding-left: 0;
+}
+
+.vp-doc ul.contains-task-list .task-list-item {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0.25em;
+  line-height: 2.2;
+}
+
+.vp-doc ul.contains-task-list .task-list-item input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  min-height: 22px;
+  margin-right: 14px;
+  accent-color: var(--vp-c-brand-1);
+  vertical-align: middle;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* 印刷対象ページ：表内チェック（☐列）を大きく */
+.printable-page .vp-doc table {
+  width: 100%;
+}
+
+.printable-page .vp-doc table th:nth-child(2),
+.printable-page .vp-doc table td:nth-child(2) {
+  min-width: 4.5em;
+  width: 4.5em;
+  font-size: 1.6em;
+  line-height: 1.4;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0.6em 0.4em;
+}
+
+.printable-page .vp-doc table th,
+.printable-page .vp-doc table td {
+  padding: 0.55em 0.75em;
+}
+
+.printable-page .vp-doc table td:not(:nth-child(2)) {
+  font-size: 1em;
+}
+
+/* ===== 印刷ボタン ===== */
+.print-button-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.25rem;
+}
+
+.print-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.55em 1.2em;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.print-button:hover {
+  background: var(--vp-c-brand-soft);
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+}
+
+.print-button:active {
+  transform: scale(0.98);
+}
+
+/* ===== 印刷用スタイル ===== */
+@media print {
+  .VPNav,
+  .VPSidebar,
+  .VPDocFooter,
+  .VPLocalNav,
+  .print-button-wrap,
+  .VPDocAside,
+  .VPBackdrop,
+  .VPSwitch,
+  .VPFlyout,
+  .VPNavBarHamburger {
+    display: none !important;
+  }
+
+  .VPDoc .content-container {
+    max-width: 100% !important;
+  }
+
+  .VPDoc .container {
+    padding: 0 !important;
+  }
+
+  .VPDoc .content {
+    padding: 0 !important;
+  }
+
+  .vp-doc {
+    max-width: 100% !important;
+  }
+
+  .vp-doc ul.contains-task-list .task-list-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    min-height: 18px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .printable-page .vp-doc table th:nth-child(2),
+  .printable-page .vp-doc table td:nth-child(2) {
+    font-size: 1.4em;
+    min-width: 3.5em;
+  }
+
+  .vp-doc table {
+    page-break-inside: avoid;
+  }
+
+  .vp-doc h2 {
+    page-break-after: avoid;
+  }
+
+  .vp-doc .custom-block {
+    border: 1px solid #ccc;
+    page-break-inside: avoid;
+  }
+
+  a[href]::after {
+    content: none !important;
+  }
+}
