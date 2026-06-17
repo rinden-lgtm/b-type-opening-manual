@@ -17,6 +17,7 @@ const route = useRoute()
 
 const isPrintable = computed(() => {
   const path = route.path.replace(/\/$/, '') || '/'
+  if (path === '/templates/organization-chart') return false
   return (
     path === '/12-checklist' ||
     path === '/02-schedule' ||
@@ -29,14 +30,11 @@ const isContractPrint = computed(() => {
   return CONTRACT_PATHS.includes(path)
 })
 
-const isA3Print = computed(() => {
-  const path = route.path.replace(/\/$/, '') || '/'
-  return path === '/templates/organization-chart'
-})
+const isA3Print = computed(() => false)
 
 const isLandscapePrint = computed(() => {
   const path = route.path.replace(/\/$/, '') || '/'
-  return path === '/templates/wage-regulations' || path === '/templates/organization-chart'
+  return path === '/templates/wage-regulations'
 })
 
 function updatePageClasses() {

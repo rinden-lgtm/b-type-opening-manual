@@ -347,6 +347,43 @@
   transform: scale(0.98);
 }
 
+.print-button-wrap.org-download-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.45rem;
+}
+
+.print-button--download {
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.org-download-link {
+  font-size: 0.82rem;
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
+}
+
+.org-download-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .print-button-wrap.org-download-wrap {
+    align-items: stretch;
+  }
+
+  .print-button--download {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .org-download-link {
+    text-align: center;
+  }
+}
+
 /* ===== 印刷用スタイル ===== */
 @page {
   margin: 0;

@@ -12,7 +12,7 @@
 | 利用規約・運営規程 | 事業所の運営ルール | [雛形を開く](/templates/facility-rules) |
 | 個人情報保護方針 | 個人情報の取り扱い | [雛形を開く](/templates/privacy-policy) |
 | 工賃規程 | 工賃の算定・支払い | [雛形を開く](/templates/wage-regulations) |
-| 組織図 | 運営体制・指定申請 | [雛形を開く](/templates/organization-chart) |
+| 組織図 | 運営体制・指定申請 | [雛形を開く](/templates/organization-chart)（スプレッドシート） |
 | 個別支援計画 | 利用開始後の支援計画 | [雛形を開く](/templates/individual-support-plan) |
 
 ::: warning 使い方

@@ -1,0 +1,96 @@
+import { mkdirSync, writeFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import XLSX from 'xlsx'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const outDir = join(__dirname, '../docs/public/downloads')
+mkdirSync(outDir, { recursive: true })
+
+const orgSheet = [
+  ['就労継続支援B型 組織図'],
+  [],
+  ['【基本情報】'],
+  ['項目', '内容'],
+  ['事業所名', '〇〇就労継続支援B型事業所'],
+  ['運営法人', '株式会社〇〇〇〇'],
+  ['所在地', '〒000-0000　〇〇県〇〇市〇〇'],
+  ['作成日', '令和　　年　　月　　日'],
+  ['基準日', '令和　　年　　月　　日現在'],
+  [],
+  ['【組織体制】'],
+  ['階層', '区分', '職種', '氏名', '雇用形態', '週所定労働時間', '保有資格・研修', '備考'],
+  ['1', '運営法人', '運営法人', '株式会社〇〇〇〇', '', '', '', '代表者：〇〇　〇〇'],
+  ['2', '事業所', '事業所', '〇〇就労継続支援B型事業所', '', '', '', '管理者：〇〇　〇〇'],
+  ['3', '管理者', '管理者', '', '常勤', '40', '', ''],
+  ['4', 'サビ管', 'サービス管理責任者', '', '常勤', '40', 'サビ管研修修了', ''],
+  ['5', '職員', '生活支援員', '', '常勤', '40', '実務者研修修了', ''],
+  ['6', '職員', '生活支援員', '', '非常勤', '20', '', ''],
+  ['7', '職員', '職業指導員', '', '常勤', '40', '', ''],
+  ['8', '職員', '事務・その他', '', '非常勤', '', '', '不要な行は削除可'],
+  [],
+  ['常勤換算（人）', ''],
+  ['兼務・兼務内容（該当する場合）', ''],
+  [],
+  ['備考（指導体制・欠員時の体制等）', ''],
+  [],
+  ['作成者', ''],
+  ['確認者（上位店）', ''],
+]
+
+const staffSheet = [
+  ['職員一覧'],
+  [],
+  ['No.', '職種', '氏名', '雇用形態', '週所定労働時間', '保有資格・研修', '備考'],
+  ['1', '管理者', '', '常勤', '40', '', ''],
+  ['2', 'サービス管理責任者', '', '常勤', '40', 'サビ管研修修了', ''],
+  ['3', '生活支援員', '', '常勤', '40', '実務者研修修了', ''],
+  ['4', '生活支援員', '', '非常勤', '20', '', ''],
+  ['5', '職業指導員', '', '常勤', '40', '', ''],
+  ['6', '', '', '', '', '', ''],
+  ['7', '', '', '', '', '', ''],
+  ['8', '', '', '', '', '', ''],
+  [],
+  ['常勤換算（人）', ''],
+  ['配置基準の確認', '上位店へ確認'],
+]
+
+const workbook = XLSX.utils.book_new()
+
+const wsOrg = XLSX.utils.aoa_to_sheet(orgSheet)
+wsOrg['!cols'] = [
+  { wch: 10 },
+  { wch: 14 },
+  { wch: 24 },
+  { wch: 18 },
+  { wch: 10 },
+  { wch: 16 },
+  { wch: 20 },
+  { wch: 24 },
+]
+
+const wsStaff = XLSX.utils.aoa_to_sheet(staffSheet)
+wsStaff['!cols'] = [
+  { wch: 6 },
+  { wch: 24 },
+  { wch: 16 },
+  { wch: 10 },
+  { wch: 16 },
+  { wch: 20 },
+  { wch: 24 },
+]
+
+XLSX.utils.book_append_sheet(workbook, wsOrg, '組織図')
+XLSX.utils.book_append_sheet(workbook, wsStaff, '職員一覧')
+
+const xlsxPath = join(outDir, 'organization-chart.xlsx')
+XLSX.writeFile(workbook, xlsxPath)
+
+const csvPath = join(outDir, 'organization-chart.csv')
+const csv = orgSheet
+  .map((row) => row.map((cell) => `"${String(cell ?? '').replace(/"/g, '""')}"`).join(','))
+  .join('\r\n')
+writeFileSync(csvPath, `\uFEFF${csv}`, 'utf8')
+
+console.log(`Generated: ${xlsxPath}`)
+console.log(`Generated: ${csvPath}`)
