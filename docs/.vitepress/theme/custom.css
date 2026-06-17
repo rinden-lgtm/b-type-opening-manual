@@ -95,18 +95,6 @@
   table-layout: fixed;
 }
 
-/* チェック列（2列目） */
-.printable-page .vp-doc table th:nth-child(2),
-.printable-page .vp-doc table td:nth-child(2) {
-  min-width: 4.5em;
-  width: 4.5em;
-  font-size: 1.6em;
-  line-height: 1.4;
-  text-align: center;
-  vertical-align: middle;
-  padding: 0.6em 0.4em;
-}
-
 .printable-page .vp-doc table th,
 .printable-page .vp-doc table td {
   padding: 0.55em 0.75em;
@@ -114,11 +102,7 @@
   overflow-wrap: break-word;
 }
 
-.printable-page .vp-doc table td:not(:nth-child(2)) {
-  font-size: 1em;
-}
-
-/* 3列テーブル（確認項目 | 確認済 | 内容・備考） */
+/* 3列チェックリスト（確認項目 | 確認済 | 内容・備考） */
 .printable-page .vp-doc table:has(th:nth-child(3):last-child) th:nth-child(1),
 .printable-page .vp-doc table:has(th:nth-child(3):last-child) td:nth-child(1) {
   width: 18%;
@@ -128,6 +112,11 @@
 .printable-page .vp-doc table:has(th:nth-child(3):last-child) td:nth-child(2) {
   width: 8%;
   min-width: 3.5em;
+  font-size: 1.6em;
+  line-height: 1.4;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0.6em 0.4em;
 }
 
 .printable-page .vp-doc table:has(th:nth-child(3):last-child) th:nth-child(3),
@@ -158,6 +147,11 @@
 .printable-page .vp-doc table:has(th:nth-child(5):last-child) td:nth-child(2) {
   width: 7%;
   min-width: 3em;
+  font-size: 1.6em;
+  line-height: 1.4;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0.6em 0.4em;
 }
 
 .printable-page .vp-doc table:has(th:nth-child(5):last-child) th:nth-child(3),
@@ -173,6 +167,152 @@
 .printable-page .vp-doc table:has(th:nth-child(5):last-child) th:nth-child(5),
 .printable-page .vp-doc table:has(th:nth-child(5):last-child) td:nth-child(5) {
   width: 53%;
+}
+
+/* 横長テーブル（作業発注元リスト等） */
+.printable-page .vp-doc .wide-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 0 1.5rem;
+  max-width: 100%;
+}
+
+.printable-page .vp-doc .wide-table-scroll table {
+  table-layout: auto;
+  width: 100%;
+  min-width: 1080px;
+}
+
+.printable-page .vp-doc .wide-table-scroll table th,
+.printable-page .vp-doc .wide-table-scroll table td {
+  min-height: 2.8em;
+  vertical-align: top;
+}
+
+/* 9列：営業先一覧 */
+.printable-page .vp-doc .wide-table--9col table th:nth-child(1),
+.printable-page .vp-doc .wide-table--9col table td:nth-child(1) {
+  width: 2.5em;
+  text-align: center;
+}
+
+.printable-page .vp-doc .wide-table--9col table th:nth-child(2),
+.printable-page .vp-doc .wide-table--9col table td:nth-child(2) {
+  min-width: 9em;
+  width: 14%;
+}
+
+.printable-page .vp-doc .wide-table--9col table th:nth-child(3),
+.printable-page .vp-doc .wide-table--9col table td:nth-child(3) {
+  min-width: 6em;
+  width: 10%;
+}
+
+.printable-page .vp-doc .wide-table--9col table th:nth-child(4),
+.printable-page .vp-doc .wide-table--9col table td:nth-child(4) {
+  min-width: 6em;
+  width: 9%;
+}
+
+.printable-page .vp-doc .wide-table--9col table th:nth-child(5),
+.printable-page .vp-doc .wide-table--9col table td:nth-child(5) {
+  min-width: 8em;
+  width: 13%;
+}
+
+.printable-page .vp-doc .wide-table--9col table th:nth-child(6),
+.printable-page .vp-doc .wide-table--9col table td:nth-child(6) {
+  min-width: 8em;
+  width: 13%;
+}
+
+.printable-page .vp-doc .wide-table--9col table th:nth-child(7),
+.printable-page .vp-doc .wide-table--9col table td:nth-child(7) {
+  min-width: 7em;
+  width: 11%;
+}
+
+.printable-page .vp-doc .wide-table--9col table th:nth-child(8),
+.printable-page .vp-doc .wide-table--9col table td:nth-child(8) {
+  min-width: 6em;
+  width: 9%;
+}
+
+.printable-page .vp-doc .wide-table--9col table th:nth-child(9),
+.printable-page .vp-doc .wide-table--9col table td:nth-child(9) {
+  min-width: 8em;
+  width: 14%;
+}
+
+/* 7列：契約済みサマリー */
+.printable-page .vp-doc .wide-table--7col table {
+  min-width: 860px;
+}
+
+.printable-page .vp-doc .wide-table--7col table th:nth-child(1),
+.printable-page .vp-doc .wide-table--7col table td:nth-child(1) {
+  width: 2.5em;
+  text-align: center;
+}
+
+.printable-page .vp-doc .wide-table--7col table th:nth-child(2),
+.printable-page .vp-doc .wide-table--7col table td:nth-child(2) {
+  min-width: 9em;
+  width: 18%;
+}
+
+.printable-page .vp-doc .wide-table--7col table th:nth-child(3),
+.printable-page .vp-doc .wide-table--7col table td:nth-child(3) {
+  min-width: 8em;
+  width: 18%;
+}
+
+.printable-page .vp-doc .wide-table--7col table th:nth-child(4),
+.printable-page .vp-doc .wide-table--7col table td:nth-child(4) {
+  min-width: 5em;
+  width: 10%;
+}
+
+.printable-page .vp-doc .wide-table--7col table th:nth-child(5),
+.printable-page .vp-doc .wide-table--7col table td:nth-child(5) {
+  min-width: 7em;
+  width: 16%;
+}
+
+.printable-page .vp-doc .wide-table--7col table th:nth-child(6),
+.printable-page .vp-doc .wide-table--7col table td:nth-child(6) {
+  min-width: 6em;
+  width: 14%;
+}
+
+.printable-page .vp-doc .wide-table--7col table th:nth-child(7),
+.printable-page .vp-doc .wide-table--7col table td:nth-child(7) {
+  min-width: 6em;
+  width: 14%;
+}
+
+/* 3列：作業量の目安（チェックリスト用3列CSSの上書き） */
+.printable-page .vp-doc .sheet-table--volume table th:nth-child(1),
+.printable-page .vp-doc .sheet-table--volume table td:nth-child(1) {
+  width: 15%;
+  font-size: 1em;
+  text-align: left;
+}
+
+.printable-page .vp-doc .sheet-table--volume table th:nth-child(2),
+.printable-page .vp-doc .sheet-table--volume table td:nth-child(2) {
+  width: 45%;
+  min-width: 10em;
+  font-size: 1em;
+  text-align: left;
+  padding: 0.55em 0.75em;
+}
+
+.printable-page .vp-doc .sheet-table--volume table th:nth-child(3),
+.printable-page .vp-doc .sheet-table--volume table td:nth-child(3) {
+  width: 40%;
+  font-size: 1em;
+  text-align: left;
 }
 
 /* ===== 印刷ボタン ===== */
@@ -258,6 +398,24 @@
     width: 53% !important;
   }
 
+  .printable-page .vp-doc .wide-table-scroll table {
+    min-width: 100% !important;
+    table-layout: auto !important;
+    font-size: 0.85rem;
+  }
+
+  .printable-page .vp-doc .wide-table--9col table {
+    min-width: 100% !important;
+  }
+
+  .landscape-print .vp-doc .wide-table-scroll {
+    overflow: visible !important;
+  }
+
+  .landscape-print .vp-doc .wide-table-scroll table {
+    font-size: 0.8rem;
+  }
+
   .vp-doc ul.contains-task-list .task-list-item input[type="checkbox"] {
     width: 18px;
     height: 18px;
@@ -267,8 +425,10 @@
     print-color-adjust: exact;
   }
 
-  .printable-page .vp-doc table th:nth-child(2),
-  .printable-page .vp-doc table td:nth-child(2) {
+  .printable-page .vp-doc table:has(th:nth-child(3):last-child) th:nth-child(2),
+  .printable-page .vp-doc table:has(th:nth-child(3):last-child) td:nth-child(2),
+  .printable-page .vp-doc table:has(th:nth-child(5):last-child) th:nth-child(2),
+  .printable-page .vp-doc table:has(th:nth-child(5):last-child) td:nth-child(2) {
     font-size: 1.4em;
     min-width: 3.5em;
   }
