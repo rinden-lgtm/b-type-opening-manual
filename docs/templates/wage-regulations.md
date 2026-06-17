@@ -1,8 +1,12 @@
+---
+pageClass: contract-print landscape-print
+---
+
 # 工賃規程（雛形）
 
-就労継続支援B型における工賃（作業対価）の算定・支払いに関する規程の雛形です。
-
 <div class="no-print">
+
+就労継続支援B型における工賃（作業対価）の算定・支払いに関する規程の雛形です。
 
 ::: warning 使い方
 <span class="edit-field">赤文字</span> は事業所ごとに修正してください。作業単価表は実際の受注内容に合わせて記入してください。
@@ -110,4 +114,10 @@
 
 </div>
 
+</div>
+
+<div class="no-print doc-nav-links">
+
 [← 個人情報保護方針](/templates/privacy-policy) | [個別支援計画 →](/templates/individual-support-plan)
+
+</div>

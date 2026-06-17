@@ -1,8 +1,12 @@
+---
+pageClass: contract-print
+---
+
 # 個別支援計画（雛形）
 
-就労継続支援B型の個別支援計画書の雛形です。利用開始後、サービス管理責任者が作成します。
-
 <div class="no-print">
+
+就労継続支援B型の個別支援計画書の雛形です。利用開始後、サービス管理責任者が作成します。
 
 ::: warning 使い方
 <span class="edit-field">赤文字</span> は修正が必要な箇所です。記入欄は十分なスペースを確保しています。作成・変更時は利用者の同意を得てください。
@@ -139,4 +143,10 @@
 
 </div>
 
+</div>
+
+<div class="no-print doc-nav-links">
+
 [← 工賃規程](/templates/wage-regulations) | [← 利用者サービス利用契約書](/templates/user-service-contract)
+
+</div>

@@ -1,8 +1,12 @@
+---
+pageClass: contract-print
+---
+
 # 利用規約・運営規程（雛形）
 
-就労継続支援B型事業所の利用規約・運営規程の雛形です。
-
 <div class="no-print">
+
+就労継続支援B型事業所の利用規約・運営規程の雛形です。
 
 ::: warning 使い方
 <span class="edit-field">赤文字</span> は事業所ごとに修正してください。記入・追記が必要な箇所には枠内スペースを設けています。
@@ -111,4 +115,10 @@
 
 </div>
 
+</div>
+
+<div class="no-print doc-nav-links">
+
 [← 重要事項説明書](/templates/important-matters-notice) | [個人情報保護方針 →](/templates/privacy-policy)
+
+</div>

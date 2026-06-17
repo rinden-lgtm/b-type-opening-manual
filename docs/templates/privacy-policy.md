@@ -1,8 +1,12 @@
+---
+pageClass: contract-print
+---
+
 # 個人情報保護方針（雛形）
 
-事業所の個人情報保護方針の雛形です。
-
 <div class="no-print">
+
+事業所の個人情報保護方針の雛形です。
 
 ::: warning 使い方
 <span class="edit-field">赤文字</span> は修正が必要な箇所です。自社の運用に合わせて追記・修正してください。
@@ -99,4 +103,10 @@
 
 </div>
 
+</div>
+
+<div class="no-print doc-nav-links">
+
 [← 利用規約・運営規程](/templates/facility-rules) | [工賃規程 →](/templates/wage-regulations)
+
+</div>

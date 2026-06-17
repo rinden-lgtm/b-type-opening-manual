@@ -514,7 +514,172 @@
   .vp-doc .fill-line {
     border-color: #999 !important;
     background: transparent !important;
-    min-height: inherit;
+  }
+}
+
+/* ===== 契約書：印刷用（そのまま使える書類形式） ===== */
+@media print {
+  html.contract-print,
+  html.contract-print body {
+    background: #fff !important;
+  }
+
+  html.contract-print .VPDoc,
+  html.contract-print .VPDoc .content-container,
+  html.contract-print .VPDoc .container,
+  html.contract-print .VPDoc .content,
+  html.contract-print .vp-doc {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  html.contract-print .vp-doc > h1:first-child {
+    display: none !important;
+  }
+
+  html.contract-print .no-print,
+  html.contract-print .custom-block,
+  html.contract-print .doc-nav-links,
+  html.contract-print .vp-doc > hr,
+  html.contract-print .contract-doc > hr {
+    display: none !important;
+  }
+
+  html.contract-print .contract-doc {
+    font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "MS PMincho", serif;
+    font-size: 10.5pt;
+    line-height: 1.85;
+    color: #000 !important;
+  }
+
+  html.contract-print .contract-doc > p > strong:only-child,
+  html.contract-print .contract-doc > p strong:first-child {
+    display: block;
+    text-align: center;
+    font-size: 14pt;
+    font-weight: 700;
+    margin: 0 0 1.2em;
+    letter-spacing: 0.05em;
+  }
+
+  html.contract-print .contract-doc .article-title {
+    font-size: 11pt;
+    font-weight: 700;
+    margin-top: 1.2em;
+    margin-bottom: 0.4em;
+    page-break-after: avoid;
+  }
+
+  html.contract-print .contract-doc p,
+  html.contract-print .contract-doc li {
+    color: #000 !important;
+    orphans: 3;
+    widows: 3;
+  }
+
+  html.contract-print .contract-doc .edit-field {
+    color: #000 !important;
+    font-weight: 400;
+    border-bottom: 1px solid #000;
+    padding: 0 0.15em 0.1em;
+    text-decoration: none;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  html.contract-print .contract-doc .fill-line {
+    display: block;
+    min-height: 2.2em;
+    border: none;
+    border-bottom: 1px solid #000;
+    margin: 0.2em 0 0.8em;
+    background: transparent !important;
+  }
+
+  html.contract-print .contract-doc .fill-block {
+    min-height: 7em;
+    border: 1px solid #000;
+    border-radius: 0;
+    background: #fff !important;
+    padding: 0.6em 0.8em;
+    margin: 0.4em 0 1em;
+    page-break-inside: auto;
+  }
+
+  html.contract-print .contract-doc .fill-block--sm {
+    min-height: 4.5em;
+  }
+
+  html.contract-print .contract-doc .fill-block--lg {
+    min-height: 10em;
+  }
+
+  html.contract-print .contract-doc table {
+    width: 100% !important;
+    table-layout: fixed;
+    border-collapse: collapse;
+    page-break-inside: auto;
+    font-size: 10pt;
+  }
+
+  html.contract-print .contract-doc table th,
+  html.contract-print .contract-doc table td {
+    border: 1px solid #000 !important;
+    padding: 0.45em 0.55em !important;
+    vertical-align: top;
+    color: #000 !important;
+    background: #fff !important;
+    font-size: 10pt !important;
+    text-align: left;
+  }
+
+  html.contract-print .contract-doc table th {
+    font-weight: 700;
+    width: 28%;
+  }
+
+  html.contract-print .contract-doc .wide-table-scroll {
+    overflow: visible !important;
+  }
+
+  html.contract-print .contract-doc .wide-table-scroll table {
+    table-layout: auto !important;
+    min-width: 100% !important;
+    font-size: 9pt !important;
+  }
+
+  html.contract-print .contract-doc .sign-block {
+    margin-top: 2em;
+    page-break-inside: avoid;
+  }
+
+  html.contract-print .contract-doc .sign-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+  }
+
+  html.contract-print.landscape-print .contract-doc,
+  html.contract-print .landscape-print .contract-doc {
+    font-size: 10pt;
+  }
+}
+
+@page {
+  margin: 18mm 20mm;
+  size: A4 portrait;
+}
+
+@media print {
+  html.contract-print.landscape-print,
+  html.landscape-print.contract-print {
+    /* wage table pages */
+  }
+}
+
+@media print {
+  html.landscape-print {
+    size: A4 landscape;
   }
 }
 

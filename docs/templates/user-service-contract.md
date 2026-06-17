@@ -1,12 +1,16 @@
+---
+pageClass: contract-print
+---
+
 # 利用者 サービス利用契約書（雛形）
+
+<div class="no-print">
 
 就労継続支援B型を利用する方（利用者）との契約書雛形です。
 
 ::: info 雇用契約ではありません
 B型事業所と利用者の関係は**雇用関係ではありません**。利用者との間で締結するのは、障害福祉サービス（就労継続支援B型）の**利用に関する契約**です。工賃は雇用の賃金ではなく、作業の対価として支払われます。
 :::
-
-<div class="no-print">
 
 ::: warning 使い方
 <span class="edit-field">赤文字</span> の箇所は、事業所・開設者ごとに修正してください。締結前に必ず上位店または専門家に確認してください。利用者本人が契約能力を有しない場合は、法定代理人・後見人等の署名が必要になる場合があります。
@@ -151,7 +155,11 @@ B型事業所と利用者の関係は**雇用関係ではありません**。利
 
 </div>
 
+</div>
+
 ---
+
+<div class="no-print">
 
 ## 添付書類（別途準備）
 
@@ -165,4 +173,10 @@ B型事業所と利用者の関係は**雇用関係ではありません**。利
 | 工賃規程 | [雛形を開く](/templates/wage-regulations) |
 | 個別支援計画 | [雛形を開く](/templates/individual-support-plan)（利用開始後） |
 
+<div class="doc-nav-links">
+
 [← 支援スタッフ雇用契約書](/templates/employment-contract-staff) | [← 利用者募集準備](/09-user-recruitment)
+
+</div>
+
+</div>

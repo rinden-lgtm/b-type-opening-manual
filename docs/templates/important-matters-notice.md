@@ -1,8 +1,12 @@
+---
+pageClass: contract-print
+---
+
 # 重要事項説明書（雛形）
 
-就労継続支援B型の利用開始前に、利用者（および必要に応じてご家族・代理人）へ説明する重要事項説明書の雛形です。
-
 <div class="no-print">
+
+就労継続支援B型の利用開始前に、利用者（および必要に応じてご家族・代理人）へ説明する重要事項説明書の雛形です。
 
 ::: warning 使い方
 <span class="edit-field">赤文字</span> は修正が必要な箇所です。記入欄（点線・枠内）に十分なスペースがあります。印刷して記入するか、Word等に転記して使用してください。
@@ -111,4 +115,10 @@
 
 </div>
 
+</div>
+
+<div class="no-print doc-nav-links">
+
 [← 利用者サービス利用契約書](/templates/user-service-contract) | [利用規約・運営規程 →](/templates/facility-rules)
+
+</div>

@@ -1,8 +1,12 @@
+---
+pageClass: contract-print
+---
+
 # 支援スタッフ 雇用契約書（雛形）
 
-生活支援員・職業指導員等、支援スタッフとの雇用契約書の雛形です。締結前に必ず上位店または社労士・弁護士等の専門家に確認してください。
-
 <div class="no-print">
+
+生活支援員・職業指導員等、支援スタッフとの雇用契約書の雛形です。締結前に必ず上位店または社労士・弁護士等の専門家に確認してください。
 
 ::: warning 使い方
 <span class="edit-field">赤文字</span> の箇所は、事業所・開設者ごとに内容を修正してください。職種名・業務内容・勤務条件は採用者ごとに調整してください。
@@ -130,4 +134,10 @@
 
 </div>
 
+</div>
+
+<div class="no-print doc-nav-links">
+
 [← サビ管雇用契約書](/templates/employment-contract-sabikan) | [利用者サービス利用契約書 →](/templates/user-service-contract)
+
+</div>

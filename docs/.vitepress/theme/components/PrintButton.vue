@@ -2,6 +2,17 @@
 import { useRoute } from 'vitepress'
 import { computed, watch, onMounted } from 'vue'
 
+const CONTRACT_PATHS = [
+  '/templates/employment-contract-sabikan',
+  '/templates/employment-contract-staff',
+  '/templates/user-service-contract',
+  '/templates/important-matters-notice',
+  '/templates/facility-rules',
+  '/templates/privacy-policy',
+  '/templates/wage-regulations',
+  '/templates/individual-support-plan',
+]
+
 const route = useRoute()
 
 const isPrintable = computed(() => {
@@ -13,22 +24,35 @@ const isPrintable = computed(() => {
   )
 })
 
-function updatePrintableClass(show: boolean) {
+const isContractPrint = computed(() => {
+  const path = route.path.replace(/\/$/, '') || '/'
+  return CONTRACT_PATHS.includes(path)
+})
+
+const isLandscapePrint = computed(() => {
+  const path = route.path.replace(/\/$/, '') || '/'
+  return path === '/templates/wage-regulations'
+})
+
+function updatePageClasses() {
   if (typeof document === 'undefined') return
-  document.documentElement.classList.toggle('printable-page', show)
+  document.documentElement.classList.toggle('printable-page', isPrintable.value)
+  document.documentElement.classList.toggle('contract-print', isContractPrint.value)
+  document.documentElement.classList.toggle('landscape-print', isLandscapePrint.value)
 }
 
-watch(isPrintable, (show) => {
-  updatePrintableClass(show)
-  if (show) enableCheckboxes()
+watch([isPrintable, isContractPrint, isLandscapePrint], () => {
+  updatePageClasses()
+  if (isPrintable.value) enableCheckboxes()
 }, { immediate: true })
 
 watch(() => route.path, () => {
+  updatePageClasses()
   if (isPrintable.value) enableCheckboxes()
 })
 
 onMounted(() => {
-  updatePrintableClass(isPrintable.value)
+  updatePageClasses()
   if (isPrintable.value) enableCheckboxes()
 })
 
@@ -50,7 +74,7 @@ function handlePrint() {
   <div v-if="isPrintable" class="print-button-wrap">
     <button type="button" class="print-button" @click="handlePrint">
       <span aria-hidden="true">🖨</span>
-      印刷する
+      {{ isContractPrint ? '書類として印刷' : '印刷する' }}
     </button>
   </div>
 </template>

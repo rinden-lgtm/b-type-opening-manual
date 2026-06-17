@@ -1,8 +1,12 @@
+---
+pageClass: contract-print
+---
+
 # サビ管 雇用契約書（雛形）
 
-サービス管理責任者（サビ管）との雇用契約書の雛形です。締結前に必ず上位店または社労士・弁護士等の専門家に確認してください。
-
 <div class="no-print">
+
+サービス管理責任者（サビ管）との雇用契約書の雛形です。締結前に必ず上位店または社労士・弁護士等の専門家に確認してください。
 
 ::: warning 使い方
 <span class="edit-field">赤文字</span> の箇所は、事業所・開設者ごとに内容を修正してください。修正完了後に印刷し、双方が記名押印してください。
@@ -121,4 +125,10 @@
 
 </div>
 
+</div>
+
+<div class="no-print doc-nav-links">
+
 [← 人員採用と勤務体制](/07-staff) | [支援スタッフ雇用契約書 →](/templates/employment-contract-staff)
+
+</div>
