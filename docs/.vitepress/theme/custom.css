@@ -509,4 +509,61 @@
     font-size: 10.5pt;
     line-height: 1.75;
   }
+
+  .vp-doc .fill-block,
+  .vp-doc .fill-line {
+    border-color: #999 !important;
+    background: transparent !important;
+    min-height: inherit;
+  }
+}
+
+.vp-doc .fill-line {
+  display: block;
+  min-height: 2.4em;
+  border-bottom: 1px dashed #bbb;
+  margin: 0.35em 0 1em;
+}
+
+.vp-doc .fill-block {
+  min-height: 9em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 1em 1.1em;
+  margin: 0.5em 0 1.3em;
+  background: var(--vp-c-bg-soft);
+}
+
+.vp-doc .fill-block--sm {
+  min-height: 5em;
+}
+
+.vp-doc .fill-block--lg {
+  min-height: 14em;
+}
+
+.vp-doc .fill-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.vp-doc .fill-table th {
+  width: 28%;
+  vertical-align: top;
+  font-weight: 600;
+}
+
+.vp-doc .fill-table td {
+  vertical-align: top;
+  min-height: 3em;
+}
+
+.vp-doc .fill-table .fill-cell {
+  min-height: 3.5em;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
+}
+
+.vp-doc .fill-table .fill-cell--tall {
+  min-height: 7em;
 }

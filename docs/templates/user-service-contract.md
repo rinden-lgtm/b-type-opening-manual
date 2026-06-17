@@ -155,10 +155,14 @@ B型事業所と利用者の関係は**雇用関係ではありません**。利
 
 ## 添付書類（別途準備）
 
-- [ ] 重要事項説明書  
-- [ ] 利用規約・運営規程  
-- [ ] 個人情報保護方針  
-- [ ] 工賃規程  
-- [ ] 個別支援計画（利用開始後）
+各書類の雛形を用意しています。<span class="edit-field">赤文字</span> の箇所を修正のうえ、印刷してご利用ください。
+
+| 書類 | 雛形 |
+|------|------|
+| 重要事項説明書 | [雛形を開く](/templates/important-matters-notice) |
+| 利用規約・運営規程 | [雛形を開く](/templates/facility-rules) |
+| 個人情報保護方針 | [雛形を開く](/templates/privacy-policy) |
+| 工賃規程 | [雛形を開く](/templates/wage-regulations) |
+| 個別支援計画 | [雛形を開く](/templates/individual-support-plan)（利用開始後） |
 
 [← 支援スタッフ雇用契約書](/templates/employment-contract-staff) | [← 利用者募集準備](/09-user-recruitment)
