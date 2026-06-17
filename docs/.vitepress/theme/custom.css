@@ -671,15 +671,8 @@
 }
 
 @media print {
-  html.contract-print.landscape-print,
-  html.landscape-print.contract-print {
-    /* wage table pages */
-  }
-}
-
-@media print {
-  html.landscape-print {
-    size: A4 landscape;
+  html.landscape-print .contract-doc .wide-table-scroll table {
+    font-size: 8.5pt !important;
   }
 }
 

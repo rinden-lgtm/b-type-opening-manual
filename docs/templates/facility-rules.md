@@ -115,8 +115,6 @@ pageClass: contract-print
 
 </div>
 
-</div>
-
 <div class="no-print doc-nav-links">
 
 [← 重要事項説明書](/templates/important-matters-notice) | [個人情報保護方針 →](/templates/privacy-policy)

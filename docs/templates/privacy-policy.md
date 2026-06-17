@@ -103,8 +103,6 @@ pageClass: contract-print
 
 </div>
 
-</div>
-
 <div class="no-print doc-nav-links">
 
 [← 利用規約・運営規程](/templates/facility-rules) | [工賃規程 →](/templates/wage-regulations)

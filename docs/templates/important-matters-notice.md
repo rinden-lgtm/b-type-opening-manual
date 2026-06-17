@@ -115,8 +115,6 @@ pageClass: contract-print
 
 </div>
 
-</div>
-
 <div class="no-print doc-nav-links">
 
 [← 利用者サービス利用契約書](/templates/user-service-contract) | [利用規約・運営規程 →](/templates/facility-rules)

@@ -143,8 +143,6 @@ pageClass: contract-print
 
 </div>
 
-</div>
-
 <div class="no-print doc-nav-links">
 
 [← 工賃規程](/templates/wage-regulations) | [← 利用者サービス利用契約書](/templates/user-service-contract)
