@@ -14,7 +14,7 @@ export default defineConfig({
   ],
 
   themeConfig: {
-    siteTitle: '就労継続支援B型 開設準備手引書',
+    siteTitle: 'B型 開設準備手引書',
 
     nav: [
       { text: 'トップ', link: '/' },
