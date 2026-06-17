@@ -449,4 +449,64 @@
   a[href]::after {
     content: none !important;
   }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* ===== 契約書テンプレート ===== */
+.vp-doc .edit-field {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.dark .vp-doc .edit-field {
+  color: #f87171;
+}
+
+.vp-doc .contract-doc {
+  line-height: 1.95;
+  font-size: 0.95rem;
+}
+
+.vp-doc .contract-doc p {
+  margin: 0.75em 0;
+}
+
+.vp-doc .contract-doc .article-title {
+  font-weight: 700;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.vp-doc .contract-doc .sign-block {
+  margin-top: 2.5em;
+  display: grid;
+  gap: 2em;
+}
+
+.vp-doc .contract-doc .sign-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+}
+
+@media (max-width: 640px) {
+  .vp-doc .contract-doc .sign-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .vp-doc .edit-field {
+    color: #dc2626 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .vp-doc .contract-doc {
+    font-size: 10.5pt;
+    line-height: 1.75;
+  }
 }
