@@ -348,17 +348,120 @@
 }
 
 /* ===== 印刷用スタイル ===== */
+@page {
+  margin: 0;
+  size: A4 portrait;
+}
+
+@page landscape {
+  size: A4 landscape;
+}
+
+@page a3-landscape {
+  size: A3 landscape;
+}
+
 @media print {
   .VPNav,
+  .VPNavBar,
+  .VPNavBarTitle,
+  .VPNavBarSearch,
+  .VPNavBarMenu,
+  .VPNavBarAppearance,
+  .VPNavBarMenuGroup,
+  .VPNavBarMenuLink,
+  .VPNavScreen,
+  .VPNavScreenMenu,
   .VPSidebar,
   .VPDocFooter,
   .VPLocalNav,
-  .print-button-wrap,
   .VPDocAside,
+  .VPDocAsideOutline,
+  .VPDocOutline,
+  .VPDocOutlineItem,
+  .print-button-wrap,
   .VPBackdrop,
   .VPSwitch,
   .VPFlyout,
-  .VPNavBarHamburger {
+  .VPNavBarHamburger,
+  .VPSocialLinks,
+  .VPLocalSearchBox,
+  header {
+    display: none !important;
+  }
+
+  html,
+  body,
+  .Layout,
+  .VPContent,
+  .VPDoc,
+  .VPDoc.has-sidebar,
+  .VPDoc .container,
+  .VPDoc .content-container,
+  .VPDoc .content {
+    padding: 0 !important;
+    margin: 0 !important;
+    padding-top: 0 !important;
+    max-width: 100% !important;
+  }
+
+  html.printable-page body,
+  html.contract-print body {
+    margin: 15mm 18mm 18mm !important;
+  }
+
+  html.landscape-print body {
+    page: landscape;
+    margin: 12mm 15mm 15mm !important;
+  }
+
+  html.a3-print body {
+    page: a3-landscape;
+    margin: 10mm 12mm 12mm !important;
+  }
+
+  html.a3-print .org-chart-doc {
+    font-size: 11pt;
+    color: #000 !important;
+  }
+
+  html.a3-print .org-chart-doc h2 {
+    font-size: 12pt;
+    margin-top: 1.2em;
+    page-break-after: avoid;
+  }
+
+  html.a3-print .org-chart__node {
+    border-color: #000 !important;
+    background: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  html.a3-print .org-chart__connector::before,
+  html.a3-print .org-chart__connector::after {
+    background: #000 !important;
+  }
+
+  html.a3-print .org-chart-doc table th,
+  html.a3-print .org-chart-doc table td {
+    border: 1px solid #000 !important;
+    color: #000 !important;
+    background: #fff !important;
+    font-size: 9.5pt !important;
+  }
+
+  html.a3-print .org-chart-doc .fill-block {
+    border: 1px solid #000 !important;
+    background: #fff !important;
+  }
+
+  html.a3-print .org-chart-doc .fill-line {
+    border-bottom: 1px solid #000 !important;
+  }
+
+  html.printable-page .vp-doc > h1:first-child,
+  html.contract-print .vp-doc > h1:first-child {
     display: none !important;
   }
 
@@ -659,15 +762,14 @@
     gap: 1.5em;
   }
 
+  html.contract-print .contract-doc--standalone {
+    page-break-after: always;
+  }
+
   html.contract-print.landscape-print .contract-doc,
   html.contract-print .landscape-print .contract-doc {
     font-size: 10pt;
   }
-}
-
-@page {
-  margin: 18mm 20mm;
-  size: A4 portrait;
 }
 
 @media print {
@@ -724,4 +826,447 @@
 
 .vp-doc .fill-table .fill-cell--tall {
   min-height: 7em;
+}
+
+/* ===== 組織図テンプレート ===== */
+.vp-doc .org-chart-doc {
+  line-height: 1.7;
+}
+
+.vp-doc .org-chart-doc__header {
+  margin-bottom: 0.5em;
+}
+
+.vp-doc .org-chart-meta-list {
+  display: grid;
+  gap: 0.65em;
+  margin: 1em 0 0;
+  padding: 0.85em 1em;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background: var(--vp-c-bg-soft);
+}
+
+.vp-doc .org-chart-meta-list__row {
+  display: grid;
+  grid-template-columns: 5.5em 1fr;
+  gap: 0.5em 0.75em;
+  align-items: start;
+  font-size: 0.92rem;
+}
+
+.vp-doc .org-chart-meta-list__label {
+  font-weight: 700;
+  color: var(--vp-c-text-2);
+  white-space: nowrap;
+}
+
+.vp-doc .org-chart-meta-list__value {
+  word-break: break-word;
+}
+
+.vp-doc .org-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: 1.5em 0 2em;
+  padding: 0 0.5em;
+}
+
+.vp-doc .org-chart__level {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.vp-doc .org-chart__level--wide {
+  max-width: 420px;
+}
+
+.vp-doc .org-chart__level--staff {
+  flex-wrap: wrap;
+  max-width: 100%;
+  gap: 1rem;
+}
+
+.vp-doc .org-chart__node {
+  border: 2px solid var(--vp-c-divider);
+  border-radius: 6px;
+  padding: 0.75em 1em;
+  min-width: 160px;
+  max-width: 220px;
+  text-align: center;
+  background: var(--vp-c-bg-soft);
+}
+
+.vp-doc .org-chart__node--entity {
+  border-color: var(--vp-c-brand-1);
+  min-width: 240px;
+}
+
+.vp-doc .org-chart__node--facility {
+  border-color: var(--vp-c-brand-1);
+  min-width: 260px;
+}
+
+.vp-doc .org-chart__node--manager,
+.vp-doc .org-chart__node--sabikan {
+  border-width: 2px;
+  border-color: #3b82f6;
+  min-width: 200px;
+}
+
+.vp-doc .org-chart__node--staff {
+  min-width: 150px;
+  max-width: 180px;
+  font-size: 0.92rem;
+}
+
+.vp-doc .org-chart__node--optional {
+  border-style: dashed;
+  opacity: 0.92;
+}
+
+.vp-doc .org-chart__role {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--vp-c-text-2);
+  margin-bottom: 0.35em;
+}
+
+.vp-doc .org-chart__name {
+  font-size: 1rem;
+  font-weight: 600;
+  min-height: 2em;
+  margin-bottom: 0.35em;
+}
+
+.vp-doc .org-chart__name .fill-line {
+  margin: 0.2em 0 0;
+  min-height: 1.8em;
+}
+
+.vp-doc .org-chart__sub,
+.vp-doc .org-chart__meta {
+  font-size: 0.78rem;
+  color: var(--vp-c-text-2);
+  line-height: 1.5;
+}
+
+.vp-doc .org-chart__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35em 0.75em;
+}
+
+.vp-doc .org-chart__meta-item {
+  white-space: nowrap;
+}
+
+.vp-doc .org-chart__badge {
+  display: inline-block;
+  margin-top: 0.45em;
+  padding: 0.15em 0.55em;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
+
+.vp-doc .org-chart__connector {
+  position: relative;
+  width: 2px;
+  height: 28px;
+  background: var(--vp-c-divider);
+  flex-shrink: 0;
+}
+
+.vp-doc .org-chart__connector--branch {
+  height: 32px;
+}
+
+.vp-doc .org-chart__connector--fan {
+  width: min(72%, 680px);
+  height: 2px;
+  margin: 0.25em 0 0.75em;
+  background: transparent;
+  position: relative;
+}
+
+.vp-doc .org-chart__connector--fan::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 24px;
+  background: var(--vp-c-divider);
+  transform: translateX(-50%);
+}
+
+.vp-doc .org-chart__connector--fan::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 24px;
+  height: 2px;
+  background: var(--vp-c-divider);
+}
+
+.vp-doc .org-staff-table-wrap {
+  margin-top: 0.5em;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+
+.vp-doc .org-staff-table-wrap table {
+  min-width: 680px;
+  table-layout: auto;
+}
+
+.vp-doc .org-staff-table-wrap::after {
+  content: '← 左右にスワイプして確認 →';
+  display: block;
+  font-size: 0.72rem;
+  color: var(--vp-c-text-3);
+  text-align: center;
+  margin-top: 0.4em;
+  line-height: 1.4;
+}
+
+@media (min-width: 960px) {
+  .vp-doc .org-staff-table-wrap::after {
+    display: none;
+  }
+}
+
+.vp-doc .org-staff-table-wrap table th:nth-child(1),
+.vp-doc .org-staff-table-wrap table td:nth-child(1) {
+  width: 2.5em;
+  text-align: center;
+}
+
+.vp-doc .org-staff-table-wrap table th:nth-child(2),
+.vp-doc .org-staff-table-wrap table td:nth-child(2) {
+  min-width: 7.5em;
+}
+
+.vp-doc .org-staff-table-wrap table th:nth-child(3),
+.vp-doc .org-staff-table-wrap table td:nth-child(3) {
+  min-width: 6em;
+}
+
+.vp-doc .org-staff-table-wrap table th:nth-child(6),
+.vp-doc .org-staff-table-wrap table td:nth-child(6) {
+  min-width: 8em;
+}
+
+.vp-doc .org-staff-table-wrap table th:nth-child(7),
+.vp-doc .org-staff-table-wrap table td:nth-child(7) {
+  min-width: 6em;
+}
+
+.vp-doc .org-chart-sign {
+  margin-top: 2em;
+  display: grid;
+  gap: 1.25em;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .vp-doc .org-chart-doc__header {
+    margin-bottom: 0.25em;
+  }
+
+  .vp-doc .org-chart-meta-list {
+    padding: 0.75em 0.85em;
+    gap: 0.75em;
+  }
+
+  .vp-doc .org-chart-meta-list__row {
+    grid-template-columns: 1fr;
+    gap: 0.2em;
+  }
+
+  .vp-doc .org-chart-meta-list__label {
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+  }
+
+  .vp-doc .org-chart {
+    align-items: stretch;
+    padding: 0;
+    margin: 0.75em 0 1.25em;
+  }
+
+  .vp-doc .org-chart__level,
+  .vp-doc .org-chart__level--staff {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .vp-doc .org-chart__level--wide {
+    max-width: none;
+  }
+
+  .vp-doc .org-chart__node,
+  .vp-doc .org-chart__node--entity,
+  .vp-doc .org-chart__node--facility,
+  .vp-doc .org-chart__node--manager,
+  .vp-doc .org-chart__node--sabikan,
+  .vp-doc .org-chart__node--staff {
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+    text-align: left;
+    box-sizing: border-box;
+  }
+
+  .vp-doc .org-chart__level--staff {
+    border-left: 3px solid var(--vp-c-brand-1);
+    padding-left: 0.65rem;
+    margin-left: 0.35rem;
+    margin-top: 0.25rem;
+  }
+
+  .vp-doc .org-chart__level--staff .org-chart__node {
+    margin-top: 0.6rem;
+  }
+
+  .vp-doc .org-chart__level--staff .org-chart__node:first-child {
+    margin-top: 0;
+  }
+
+  .vp-doc .org-chart__connector--fan {
+    width: 2px;
+    height: 20px;
+    margin: 0.15em 0 0.35em;
+    background: var(--vp-c-divider);
+  }
+
+  .vp-doc .org-chart__connector--fan::before,
+  .vp-doc .org-chart__connector--fan::after {
+    display: none;
+  }
+
+  .vp-doc .org-chart__meta {
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2em;
+  }
+
+  .vp-doc .org-chart__meta-item {
+    white-space: normal;
+  }
+
+  .vp-doc .org-chart__role {
+    font-size: 0.72rem;
+  }
+
+  .vp-doc .org-chart__name {
+    font-size: 0.95rem;
+  }
+
+  .vp-doc .org-chart-sign {
+    font-size: 0.88rem;
+    gap: 1em;
+  }
+
+  .vp-doc .org-chart-doc .fill-block--sm {
+    min-height: 4em;
+  }
+
+  .vp-doc .org-staff-table-wrap table {
+    font-size: 0.85rem;
+  }
+
+  .vp-doc .org-staff-table-wrap table th,
+  .vp-doc .org-staff-table-wrap table td {
+    padding: 0.45em 0.55em !important;
+  }
+}
+
+@media print {
+  html.a3-print .vp-doc > h1:first-child {
+    display: none !important;
+  }
+
+  html.a3-print .org-chart {
+    page-break-inside: avoid;
+  }
+
+  html.a3-print .org-chart__level,
+  html.a3-print .org-chart__level--staff {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  html.a3-print .org-chart__level--staff {
+    border-left: none;
+    padding-left: 0;
+    margin-left: 0;
+    gap: 1rem;
+  }
+
+  html.a3-print .org-chart__level--staff .org-chart__node {
+    margin-top: 0;
+    width: auto;
+    min-width: 150px;
+    max-width: 180px;
+    text-align: center;
+  }
+
+  html.a3-print .org-chart__node,
+  html.a3-print .org-chart__node--entity,
+  html.a3-print .org-chart__node--facility,
+  html.a3-print .org-chart__node--manager,
+  html.a3-print .org-chart__node--sabikan {
+    width: auto;
+    text-align: center;
+  }
+
+  html.a3-print .org-chart__connector--fan {
+    width: min(72%, 680px);
+    height: 2px;
+    background: transparent;
+  }
+
+  html.a3-print .org-chart__connector--fan::before,
+  html.a3-print .org-chart__connector--fan::after {
+    display: block;
+  }
+
+  html.a3-print .org-chart__level--staff {
+    page-break-inside: avoid;
+  }
+
+  html.a3-print .org-staff-table-wrap::after {
+    display: none !important;
+  }
+
+  html.a3-print .org-chart-meta-list {
+    border-color: #000 !important;
+    background: #fff !important;
+  }
+
+  html.a3-print .org-chart-meta-list__row {
+    grid-template-columns: 5.5em 1fr;
+  }
+
+  html.a3-print .org-chart__meta {
+    flex-direction: row;
+    justify-content: center;
+  }
 }

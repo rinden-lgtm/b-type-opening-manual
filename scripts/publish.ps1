@@ -45,8 +45,7 @@ if ($LASTEXITCODE -eq 0) {
     Write-Host "  2. Add New Project → GitHub から $RepoName を Import" -ForegroundColor White
     Write-Host "  3. Build Command: npm run docs:build" -ForegroundColor White
     Write-Host "  4. Output Directory: docs/.vitepress/dist" -ForegroundColor White
-    Write-Host "  5. Domains に manual.store-ash.jp を追加" -ForegroundColor White
-    Write-Host "  6. DNS: manual.store-ash.jp CNAME → cname.vercel-dns.com" -ForegroundColor White
+    Write-Host "  5. Deploy を実行" -ForegroundColor White
 } else {
     Write-Host "プッシュに失敗しました。" -ForegroundColor Red
     exit 1

@@ -29,9 +29,14 @@ const isContractPrint = computed(() => {
   return CONTRACT_PATHS.includes(path)
 })
 
+const isA3Print = computed(() => {
+  const path = route.path.replace(/\/$/, '') || '/'
+  return path === '/templates/organization-chart'
+})
+
 const isLandscapePrint = computed(() => {
   const path = route.path.replace(/\/$/, '') || '/'
-  return path === '/templates/wage-regulations'
+  return path === '/templates/wage-regulations' || path === '/templates/organization-chart'
 })
 
 function updatePageClasses() {
@@ -39,9 +44,10 @@ function updatePageClasses() {
   document.documentElement.classList.toggle('printable-page', isPrintable.value)
   document.documentElement.classList.toggle('contract-print', isContractPrint.value)
   document.documentElement.classList.toggle('landscape-print', isLandscapePrint.value)
+  document.documentElement.classList.toggle('a3-print', isA3Print.value)
 }
 
-watch([isPrintable, isContractPrint, isLandscapePrint], () => {
+watch([isPrintable, isContractPrint, isLandscapePrint, isA3Print], () => {
   updatePageClasses()
   if (isPrintable.value) enableCheckboxes()
 }, { immediate: true })
@@ -66,6 +72,15 @@ function enableCheckboxes() {
 }
 
 function handlePrint() {
+  const originalTitle = document.title
+  document.title = ' '
+  window.addEventListener(
+    'afterprint',
+    () => {
+      document.title = originalTitle
+    },
+    { once: true },
+  )
   window.print()
 }
 </script>

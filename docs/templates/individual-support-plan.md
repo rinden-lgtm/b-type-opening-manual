@@ -145,6 +145,6 @@ pageClass: contract-print
 
 <div class="no-print doc-nav-links">
 
-[← 工賃規程](/templates/wage-regulations) | [← 利用者サービス利用契約書](/templates/user-service-contract)
+[← 工賃規程](/templates/wage-regulations) | [添付書類・規程一覧](/templates/attached-documents)
 
 </div>

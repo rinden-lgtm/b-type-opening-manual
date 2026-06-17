@@ -14,11 +14,13 @@ B型事業所と利用者の関係は**雇用関係ではありません**。利
 
 ::: warning 使い方
 <span class="edit-field">赤文字</span> の箇所は、事業所・開設者ごとに修正してください。締結前に必ず上位店または専門家に確認してください。利用者本人が契約能力を有しない場合は、法定代理人・後見人等の署名が必要になる場合があります。
+
+[重要事項説明書](/templates/important-matters-notice) は**別の書類**です。契約書と混ぜず、個別に印刷してください。
 :::
 
 </div>
 
-<div class="contract-doc">
+<div class="contract-doc contract-doc--standalone">
 
 **就労継続支援B型 サービス利用契約書**
 
@@ -155,24 +157,10 @@ B型事業所と利用者の関係は**雇用関係ではありません**。利
 
 </div>
 
-<div class="no-print">
+<div class="no-print doc-nav-links">
 
-## 添付書類（別途準備）
+[← 支援スタッフ雇用契約書](/templates/employment-contract-staff) | [重要事項説明書 →](/templates/important-matters-notice)
 
-各書類の雛形を用意しています。<span class="edit-field">赤文字</span> の箇所を修正のうえ、印刷してご利用ください。
-
-| 書類 | 雛形 |
-|------|------|
-| 重要事項説明書 | [雛形を開く](/templates/important-matters-notice) |
-| 利用規約・運営規程 | [雛形を開く](/templates/facility-rules) |
-| 個人情報保護方針 | [雛形を開く](/templates/privacy-policy) |
-| 工賃規程 | [雛形を開く](/templates/wage-regulations) |
-| 個別支援計画 | [雛形を開く](/templates/individual-support-plan)（利用開始後） |
-
-<div class="doc-nav-links">
-
-[← 支援スタッフ雇用契約書](/templates/employment-contract-staff) | [← 利用者募集準備](/09-user-recruitment)
-
-</div>
+関連する規程・添付書類は [添付書類・規程一覧](/templates/attached-documents) から個別に印刷してください。
 
 </div>
