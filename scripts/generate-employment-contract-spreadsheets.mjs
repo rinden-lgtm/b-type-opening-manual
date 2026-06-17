@@ -41,14 +41,26 @@ function setCell(ws, row, col, value, options = {}) {
   if (options.fill) cell.fill = options.fill
 }
 
+function estimateWrappedLineCount(text, charsPerLine) {
+  if (!text) return 1
+  return String(text)
+    .split('\n')
+    .reduce((sum, part) => sum + Math.max(1, Math.ceil(part.length / charsPerLine)), 0)
+}
+
 function addSection(ws, row, label, lines, options = {}) {
-  const height = Math.max(lines.length, 1)
+  const labelChars = options.labelCharsPerLine ?? 9
+  const contentChars = options.contentCharsPerLine ?? 52
+  const labelLines = estimateWrappedLineCount(label, labelChars)
+  const contentLines = estimateWrappedLineCount(lines.join('\n'), contentChars)
+  const height = Math.max(labelLines, contentLines, options.minRows ?? 1)
   const bottom = row + height - 1
   ws.mergeCells(row, 1, bottom, 1)
   ws.mergeCells(row, 2, bottom, 8)
   setCell(ws, row, 1, label, {
     font: labelFont,
-    vertical: 'middle',
+    vertical: 'top',
+    horizontal: 'center',
     border: allBorders(),
     fill: { type: 'pattern', pattern: 'solid', fgColor: { argb: COLORS.labelFill } },
   })
@@ -58,8 +70,9 @@ function addSection(ws, row, label, lines, options = {}) {
       ? { type: 'pattern', pattern: 'solid', fgColor: { argb: COLORS.editFill } }
       : undefined,
   })
+  const rowHeight = options.rowHeight ?? 18
   for (let r = row; r <= bottom; r += 1) {
-    ws.getRow(r).height = options.rowHeight ?? 20
+    ws.getRow(r).height = rowHeight
   }
   return bottom + 1
 }
@@ -134,7 +147,7 @@ const COMMON_DISCIPLINE = [
 
 const COMMON_NOTE = [
   '・この雇用契約書に定めのない事項については労働基準法及び就業規則の定める所による',
-  '本契約書は甲乙1部ずつ作成し、各々で保管する。',
+  '・本契約書は甲乙1部ずつ作成し、各々で保管する。',
 ]
 
 function buildLaborNoticeSheet(workbook, config) {
@@ -191,10 +204,13 @@ function buildLaborNoticeSheet(workbook, config) {
   })
   row = addSection(ws, row, '退 職 に 関 す る 事 項', COMMON_RETIREMENT, { rowHeight: 18 })
   row = addSection(ws, row, '社会保険等の加入', COMMON_INSURANCE)
-  row = addSection(ws, row, '解雇、退職、懲戒、\n服務規律、契約解除、その他', COMMON_DISCIPLINE, {
-    rowHeight: 36,
+  row = addSection(ws, row, '解雇、退職、懲戒、\n服務規律、契約解除、\nその他', COMMON_DISCIPLINE, {
+    rowHeight: 20,
+    labelCharsPerLine: 8,
+    contentCharsPerLine: 48,
+    minRows: 3,
   })
-  row = addSection(ws, row, '備考', COMMON_NOTE, { rowHeight: 22 })
+  row = addSection(ws, row, '備考', COMMON_NOTE, { rowHeight: 20, minRows: 2 })
 
   row += 1
   ws.mergeCells(row, 1, row, 8)

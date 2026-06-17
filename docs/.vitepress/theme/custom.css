@@ -679,7 +679,9 @@
   text-align: center;
   background: var(--vp-c-bg-soft);
   white-space: pre-line;
-  line-height: 1.5;
+  line-height: 1.65;
+  overflow: visible;
+  word-break: keep-all;
 }
 
 .vp-doc .labor-notice-table td ul,
