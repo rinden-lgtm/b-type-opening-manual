@@ -638,6 +638,114 @@
   }
 }
 
+/* ===== 労働条件通知書 ===== */
+.vp-doc .labor-notice-doc {
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.vp-doc .labor-notice-title {
+  text-align: center;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  margin: 0 0 1.2em;
+}
+
+.vp-doc .labor-notice-recipient {
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 1.5em;
+}
+
+.vp-doc .labor-notice-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.vp-doc .labor-notice-table th,
+.vp-doc .labor-notice-table td {
+  border: 1px solid var(--vp-c-divider);
+  padding: 0.75em 0.85em;
+  vertical-align: top;
+}
+
+.vp-doc .labor-notice-table th {
+  width: 24%;
+  font-weight: 700;
+  text-align: center;
+  background: var(--vp-c-bg-soft);
+  white-space: pre-line;
+  line-height: 1.5;
+}
+
+.vp-doc .labor-notice-table td ul,
+.vp-doc .labor-notice-table td ol {
+  margin: 0.35em 0;
+  padding-left: 1.35em;
+}
+
+.vp-doc .labor-notice-table td p {
+  margin: 0.35em 0;
+}
+
+.vp-doc .labor-notice-sign {
+  margin-top: 2em;
+  line-height: 2;
+}
+
+.vp-doc .labor-notice-sign .labor-notice-date {
+  text-align: right;
+  margin-bottom: 1.5em;
+}
+
+.vp-doc .labor-notice-sign-name.fill-line {
+  display: inline-block;
+  min-width: 14em;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .vp-doc .labor-notice-title {
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+  }
+
+  .vp-doc .labor-notice-table th,
+  .vp-doc .labor-notice-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .vp-doc .labor-notice-table th {
+    border-bottom: none;
+    text-align: left;
+  }
+
+  .vp-doc .labor-notice-table tr {
+    display: block;
+    margin-bottom: 0.75em;
+  }
+}
+
+@media print {
+  html.contract-print .labor-notice-table th,
+  html.contract-print .labor-notice-table td {
+    border: 1px solid #000 !important;
+    color: #000 !important;
+    background: #fff !important;
+    font-size: 9.5pt !important;
+  }
+
+  html.contract-print .labor-notice-title {
+    letter-spacing: 0.25em;
+    font-size: 14pt;
+  }
+}
+
 @media print {
   .vp-doc .edit-field {
     color: #dc2626 !important;

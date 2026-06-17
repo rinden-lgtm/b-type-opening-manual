@@ -32,10 +32,10 @@ export default defineConfig({
           { text: '開所前最終チェックリスト', link: '/templates/opening-final-checklist' },
           { text: '組織図（雛形）', link: '/templates/organization-chart' },
           {
-            text: '雇用契約書（雛形）',
+            text: '労働条件通知書（雛形）',
             items: [
-              { text: 'サビ管雇用契約書', link: '/templates/employment-contract-sabikan' },
-              { text: '支援スタッフ雇用契約書', link: '/templates/employment-contract-staff' },
+              { text: 'サビ管（労働条件通知書）', link: '/templates/employment-contract-sabikan' },
+              { text: '支援スタッフ（労働条件通知書）', link: '/templates/employment-contract-staff' },
             ],
           },
           {
@@ -100,10 +100,10 @@ export default defineConfig({
           { text: '開所前最終チェックリスト', link: '/templates/opening-final-checklist' },
           { text: '組織図（雛形）', link: '/templates/organization-chart' },
           {
-            text: '雇用契約書（雛形）',
+            text: '労働条件通知書（雛形）',
             items: [
-              { text: 'サビ管雇用契約書', link: '/templates/employment-contract-sabikan' },
-              { text: '支援スタッフ雇用契約書', link: '/templates/employment-contract-staff' },
+              { text: 'サビ管（労働条件通知書）', link: '/templates/employment-contract-sabikan' },
+              { text: '支援スタッフ（労働条件通知書）', link: '/templates/employment-contract-staff' },
             ],
           },
           {

@@ -17,7 +17,13 @@ const route = useRoute()
 
 const isPrintable = computed(() => {
   const path = route.path.replace(/\/$/, '') || '/'
-  if (path === '/templates/organization-chart') return false
+  if (
+    path === '/templates/organization-chart' ||
+    path === '/templates/employment-contract-sabikan' ||
+    path === '/templates/employment-contract-staff'
+  ) {
+    return false
+  }
   return (
     path === '/12-checklist' ||
     path === '/02-schedule' ||
