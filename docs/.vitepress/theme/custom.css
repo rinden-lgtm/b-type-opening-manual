@@ -638,7 +638,7 @@
   }
 }
 
-/* ===== 労働条件通知書 ===== */
+/* ===== 雇用契約書兼労働条件通知書 ===== */
 .vp-doc .labor-notice-doc {
   font-size: 0.95rem;
   line-height: 1.75;
@@ -646,10 +646,11 @@
 
 .vp-doc .labor-notice-title {
   text-align: center;
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.12em;
   margin: 0 0 1.2em;
+  line-height: 1.6;
 }
 
 .vp-doc .labor-notice-recipient {
@@ -707,6 +708,38 @@
   margin: 0;
 }
 
+.vp-doc .labor-notice-checks {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.35em 0 0.75em;
+}
+
+.vp-doc .labor-notice-checks .task-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45em;
+  margin: 0.35em 0;
+}
+
+.vp-doc .labor-notice-checks--inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75em 1.5em;
+}
+
+.vp-doc .labor-notice-checks--inline .task-list-item {
+  margin: 0;
+}
+
+.vp-doc .labor-notice-checks input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+  margin-top: 0.15em;
+  cursor: pointer;
+}
+
 @media (max-width: 640px) {
   .vp-doc .labor-notice-title {
     font-size: 1.1rem;
@@ -743,6 +776,15 @@
   html.contract-print .labor-notice-title {
     letter-spacing: 0.25em;
     font-size: 14pt;
+  }
+
+  html.contract-print .labor-notice-checks input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    min-height: 16px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }
 

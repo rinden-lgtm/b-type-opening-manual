@@ -73,14 +73,20 @@ const COMMON_WORKPLACES = [
 
 const COMMON_RENEWAL = [
   '契約の更新の有無',
-  '・更新する場合がある',
-  '・契約の更新はしない',
+  '☐ 更新する場合がある',
+  '☐ 契約の更新はしない',
   '契約の更新は次により判断する',
   '・契約期間満了時の業務量',
   '・勤務成績、勤務態度',
   '・能力',
   '・会社の経営状況',
   '・従事している業務の進捗状況',
+]
+
+const COMMON_EMPLOYMENT_TYPE = [
+  '☐ 正社員（期間の定めなし）',
+  '☐ 有期契約社員',
+  '☐ パート・アルバイト',
 ]
 
 const COMMON_WORK_HOURS = [
@@ -92,9 +98,9 @@ const COMMON_WORK_HOURS = [
 
 const COMMON_OVERTIME = [
   '1. 所定時間外労働の有無',
+  '   ☐ 有　　☐ 無',
   '2. 休日労働の有無',
-  '・ 有',
-  '・ 有',
+  '   ☐ 有　　☐ 無',
 ]
 
 const COMMON_LEAVE = ['年次有給休暇', '※ 詳細は、就業規則による']
@@ -103,23 +109,23 @@ const COMMON_WAGE_FOOTER = [
   '・ 当月　末',
   '・ 翌月　20日',
   '・ 所得税、雇用保険、健康保険、厚生年金',
-  '・ 年次昇給有',
+  '・ 昇給　☐ 年次昇給有　　☐ なし',
 ]
 
 const COMMON_RETIREMENT = [
   '1. 定年制',
+  '   ☐ 有　　☐ 無',
   '2. 自己都合退職の手続',
-  '3. 解雇の事由及び手続',
-  '・ 無',
   '・ 30日以上前までに届出が必要',
+  '3. 解雇の事由及び手続',
   '・ 詳細は、就業規則による',
 ]
 
 const COMMON_INSURANCE = [
   '・社会保険の加入',
+  '   ☐ 有　　☐ 無',
   '・雇用保険の適用',
-  '・ 有',
-  '・ 有',
+  '   ☐ 有　　☐ 無',
 ]
 
 const COMMON_DISCIPLINE = [
@@ -132,7 +138,7 @@ const COMMON_NOTE = [
 ]
 
 function buildLaborNoticeSheet(workbook, config) {
-  const ws = workbook.addWorksheet('労働条件通知書', {
+  const ws = workbook.addWorksheet('雇用契約書兼労働条件通知書', {
     views: [{ showGridLines: false }],
     pageSetup: {
       paperSize: 9,
@@ -156,9 +162,9 @@ function buildLaborNoticeSheet(workbook, config) {
   ]
 
   ws.mergeCells('A1:H1')
-  setCell(ws, 1, 1, '労 働 条 件 通 知 書', {
+  setCell(ws, 1, 1, '雇用契約書兼労働条件通知書', {
     horizontal: 'center',
-    font: titleFont,
+    font: { ...titleFont, size: 14 },
   })
   ws.getRow(1).height = 30
 
@@ -172,7 +178,7 @@ function buildLaborNoticeSheet(workbook, config) {
   let row = 4
   row = addSection(ws, row, '契 約 期 間', [config.contractPeriod], { editable: true, rowHeight: 22 })
   row = addSection(ws, row, '更新の有無', COMMON_RENEWAL, { rowHeight: 18 })
-  row = addSection(ws, row, '雇用形態', [config.employmentType], { editable: true })
+  row = addSection(ws, row, '雇用形態', COMMON_EMPLOYMENT_TYPE, { editable: true, rowHeight: 20 })
   row = addSection(ws, row, '就業の場所', COMMON_WORKPLACES, { editable: true, rowHeight: 22 })
   row = addSection(ws, row, '従事する業務の内容', [config.jobDescription], { editable: true, rowHeight: 24 })
   row = addSection(ws, row, '始業終業の時刻\n及び休憩時間', COMMON_WORK_HOURS, { rowHeight: 18 })
@@ -228,7 +234,7 @@ async function buildWorkbooks() {
   buildLaborNoticeSheet(sabikanWb, {
     workerNamePlaceholder: '〇〇（サビ管）',
     contractPeriod: '期間の定めあり（令和　　年　　月　　日〜令和　　年　　月　　日）',
-    employmentType: '有期契約社員（※開設企業の雇用形態に合わせて修正）',
+    employmentType: '（該当にチェック）',
     jobDescription: 'サービス管理責任者業務、他 付随する業務全般',
     wageLines: [
       '1. 基本給',
@@ -249,7 +255,7 @@ async function buildWorkbooks() {
   buildLaborNoticeSheet(staffWb, {
     workerNamePlaceholder: '〇〇（支援員）',
     contractPeriod: '期間の定めなし：令和　　年　　月　　日〜',
-    employmentType: '有期契約社員（※開設企業の雇用形態に合わせて修正）',
+    employmentType: '（該当にチェック）',
     jobDescription: '就労継続支援B型業務、他 付随する業務全般（変更の場合あり）',
     wageLines: [
       '1. 基本給',

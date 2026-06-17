@@ -9,14 +9,14 @@ const downloadTarget = computed(() => {
   if (path === '/templates/employment-contract-sabikan') {
     return {
       href: withBase('/downloads/employment-contract-sabikan.xlsx'),
-      filename: '労働条件通知書_サビ管.xlsx',
+      filename: '雇用契約書兼労働条件通知書_サビ管.xlsx',
       label: 'サビ管用',
     }
   }
   if (path === '/templates/employment-contract-staff') {
     return {
       href: withBase('/downloads/employment-contract-staff.xlsx'),
-      filename: '労働条件通知書_支援員.xlsx',
+      filename: '雇用契約書兼労働条件通知書_支援員.xlsx',
       label: '支援員用',
     }
   }

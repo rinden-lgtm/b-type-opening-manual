@@ -159,7 +159,7 @@ B型事業所と利用者の関係は**雇用関係ではありません**。利
 
 <div class="no-print doc-nav-links">
 
-[← 支援スタッフ雇用契約書](/templates/employment-contract-staff) | [重要事項説明書 →](/templates/important-matters-notice)
+[← 支援スタッフ 雇用契約書兼労働条件通知書](/templates/employment-contract-staff) | [重要事項説明書 →](/templates/important-matters-notice)
 
 関連する規程・添付書類は [添付書類・規程一覧](/templates/attached-documents) から個別に印刷してください。
 

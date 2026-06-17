@@ -15,12 +15,24 @@ const CONTRACT_PATHS = [
 
 const route = useRoute()
 
+const EMPLOYMENT_CONTRACT_PATHS = [
+  '/templates/employment-contract-sabikan',
+  '/templates/employment-contract-staff',
+]
+
+function usesInteractiveCheckboxes(path) {
+  return (
+    path === '/12-checklist' ||
+    path === '/02-schedule' ||
+    path.startsWith('/templates/')
+  )
+}
+
 const isPrintable = computed(() => {
   const path = route.path.replace(/\/$/, '') || '/'
   if (
     path === '/templates/organization-chart' ||
-    path === '/templates/employment-contract-sabikan' ||
-    path === '/templates/employment-contract-staff'
+    EMPLOYMENT_CONTRACT_PATHS.includes(path)
   ) {
     return false
   }
@@ -53,17 +65,20 @@ function updatePageClasses() {
 
 watch([isPrintable, isContractPrint, isLandscapePrint, isA3Print], () => {
   updatePageClasses()
-  if (isPrintable.value) enableCheckboxes()
+  const path = route.path.replace(/\/$/, '') || '/'
+  if (usesInteractiveCheckboxes(path)) enableCheckboxes()
 }, { immediate: true })
 
 watch(() => route.path, () => {
   updatePageClasses()
-  if (isPrintable.value) enableCheckboxes()
+  const path = route.path.replace(/\/$/, '') || '/'
+  if (usesInteractiveCheckboxes(path)) enableCheckboxes()
 })
 
 onMounted(() => {
   updatePageClasses()
-  if (isPrintable.value) enableCheckboxes()
+  const path = route.path.replace(/\/$/, '') || '/'
+  if (usesInteractiveCheckboxes(path)) enableCheckboxes()
 })
 
 function enableCheckboxes() {
