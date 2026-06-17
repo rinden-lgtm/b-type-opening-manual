@@ -48,12 +48,23 @@ function estimateWrappedLineCount(text, charsPerLine) {
     .reduce((sum, part) => sum + Math.max(1, Math.ceil(part.length / charsPerLine)), 0)
 }
 
+function estimateSectionHeight(label, lines, options = {}) {
+  const labelChars = options.labelCharsPerLine ?? 15
+  const contentChars = options.contentCharsPerLine ?? 58
+  const nonEmptyLines = lines.filter((line) => String(line).trim() !== '')
+
+  const labelLineCount = estimateWrappedLineCount(label, labelChars)
+  const explicitContentLines = Math.max(nonEmptyLines.length, 1)
+  const wrappedContentLines = estimateWrappedLineCount(nonEmptyLines.join('\n'), contentChars)
+  const contentLineCount = Math.max(explicitContentLines, wrappedContentLines)
+
+  const height = Math.max(labelLineCount, contentLineCount, options.minRows ?? 1)
+  return options.maxRows ? Math.min(height, options.maxRows) : height
+}
+
 function addSection(ws, row, label, lines, options = {}) {
-  const labelChars = options.labelCharsPerLine ?? 9
-  const contentChars = options.contentCharsPerLine ?? 52
-  const labelLines = estimateWrappedLineCount(label, labelChars)
-  const contentLines = estimateWrappedLineCount(lines.join('\n'), contentChars)
-  const height = Math.max(labelLines, contentLines, options.minRows ?? 1)
+  const contentLines = lines.filter((line) => String(line).trim() !== '')
+  const height = estimateSectionHeight(label, contentLines, options)
   const bottom = row + height - 1
   ws.mergeCells(row, 1, bottom, 1)
   ws.mergeCells(row, 2, bottom, 8)
@@ -64,7 +75,7 @@ function addSection(ws, row, label, lines, options = {}) {
     border: allBorders(),
     fill: { type: 'pattern', pattern: 'solid', fgColor: { argb: COLORS.labelFill } },
   })
-  setCell(ws, row, 2, lines.join('\n'), {
+  setCell(ws, row, 2, contentLines.join('\n'), {
     border: allBorders(),
     fill: options.editable
       ? { type: 'pattern', pattern: 'solid', fgColor: { argb: COLORS.editFill } }
@@ -80,8 +91,6 @@ function addSection(ws, row, label, lines, options = {}) {
 const COMMON_WORKPLACES = [
   '〇〇県〇〇市〇〇1-2-3　〇〇就労継続支援B型事業所',
   '（複数事業所がある場合は行を追加）',
-  '',
-  '',
 ]
 
 const COMMON_RENEWAL = [
@@ -205,12 +214,10 @@ function buildLaborNoticeSheet(workbook, config) {
   row = addSection(ws, row, '退 職 に 関 す る 事 項', COMMON_RETIREMENT, { rowHeight: 18 })
   row = addSection(ws, row, '社会保険等の加入', COMMON_INSURANCE)
   row = addSection(ws, row, '解雇、退職、懲戒、\n服務規律、契約解除、\nその他', COMMON_DISCIPLINE, {
-    rowHeight: 20,
-    labelCharsPerLine: 8,
-    contentCharsPerLine: 48,
-    minRows: 3,
+    rowHeight: 18,
+    contentCharsPerLine: 64,
   })
-  row = addSection(ws, row, '備考', COMMON_NOTE, { rowHeight: 20, minRows: 2 })
+  row = addSection(ws, row, '備考', COMMON_NOTE, { rowHeight: 18 })
 
   row += 1
   ws.mergeCells(row, 1, row, 8)

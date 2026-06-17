@@ -669,7 +669,7 @@
 .vp-doc .labor-notice-table th,
 .vp-doc .labor-notice-table td {
   border: 1px solid var(--vp-c-divider);
-  padding: 0.75em 0.85em;
+  padding: 0.6em 0.75em;
   vertical-align: top;
 }
 
@@ -679,7 +679,7 @@
   text-align: center;
   background: var(--vp-c-bg-soft);
   white-space: pre-line;
-  line-height: 1.65;
+  line-height: 1.45;
   overflow: visible;
   word-break: keep-all;
 }
