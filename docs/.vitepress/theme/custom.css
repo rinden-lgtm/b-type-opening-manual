@@ -103,13 +103,25 @@
 }
 
 /* 3列チェックリスト（確認項目 | 確認済 | 内容・備考） */
-.printable-page .vp-doc table:has(th:nth-child(3):last-child) th:nth-child(1),
-.printable-page .vp-doc table:has(th:nth-child(3):last-child) td:nth-child(1) {
+.printable-page .vp-doc .checklist-table table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.printable-page .vp-doc .checklist-table table th,
+.printable-page .vp-doc .checklist-table table td {
+  padding: 0.55em 0.75em;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.printable-page .vp-doc .checklist-table table th:nth-child(1),
+.printable-page .vp-doc .checklist-table table td:nth-child(1) {
   width: 18%;
 }
 
-.printable-page .vp-doc table:has(th:nth-child(3):last-child) th:nth-child(2),
-.printable-page .vp-doc table:has(th:nth-child(3):last-child) td:nth-child(2) {
+.printable-page .vp-doc .checklist-table table th:nth-child(2),
+.printable-page .vp-doc .checklist-table table td:nth-child(2) {
   width: 8%;
   min-width: 3.5em;
   font-size: 1.6em;
@@ -119,9 +131,40 @@
   padding: 0.6em 0.4em;
 }
 
-.printable-page .vp-doc table:has(th:nth-child(3):last-child) th:nth-child(3),
-.printable-page .vp-doc table:has(th:nth-child(3):last-child) td:nth-child(3) {
+.printable-page .vp-doc .checklist-table table th:nth-child(3),
+.printable-page .vp-doc .checklist-table table td:nth-child(3) {
   width: 74%;
+}
+
+/* 3列ドキュメント一覧（書類 | 用途 | 雛形） */
+.vp-doc .doc-index-table table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.vp-doc .doc-index-table table th,
+.vp-doc .doc-index-table table td {
+  padding: 0.6em 0.8em;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  vertical-align: top;
+}
+
+.vp-doc .doc-index-table table th:nth-child(1),
+.vp-doc .doc-index-table table td:nth-child(1) {
+  width: 30%;
+}
+
+.vp-doc .doc-index-table table th:nth-child(2),
+.vp-doc .doc-index-table table td:nth-child(2) {
+  width: 38%;
+  text-align: left;
+  font-size: 1em;
+}
+
+.vp-doc .doc-index-table table th:nth-child(3),
+.vp-doc .doc-index-table table td:nth-child(3) {
+  width: 32%;
 }
 
 /* 2列テーブル（項目 | 記録） */
@@ -523,9 +566,26 @@
     table-layout: fixed;
   }
 
-  .printable-page .vp-doc table:has(th:nth-child(3):last-child) th:nth-child(3),
-  .printable-page .vp-doc table:has(th:nth-child(3):last-child) td:nth-child(3) {
+  .printable-page .vp-doc .checklist-table table th:nth-child(3),
+  .printable-page .vp-doc .checklist-table table td:nth-child(3) {
     width: 74% !important;
+  }
+
+  .printable-page .vp-doc .doc-index-table table th:nth-child(1),
+  .printable-page .vp-doc .doc-index-table table td:nth-child(1) {
+    width: 30% !important;
+  }
+
+  .printable-page .vp-doc .doc-index-table table th:nth-child(2),
+  .printable-page .vp-doc .doc-index-table table td:nth-child(2) {
+    width: 38% !important;
+    font-size: 1em !important;
+    text-align: left !important;
+  }
+
+  .printable-page .vp-doc .doc-index-table table th:nth-child(3),
+  .printable-page .vp-doc .doc-index-table table td:nth-child(3) {
+    width: 32% !important;
   }
 
   .printable-page .vp-doc table:has(th:nth-child(2):last-child):not(:has(th:nth-child(3))) th:nth-child(2),
@@ -565,8 +625,8 @@
     print-color-adjust: exact;
   }
 
-  .printable-page .vp-doc table:has(th:nth-child(3):last-child) th:nth-child(2),
-  .printable-page .vp-doc table:has(th:nth-child(3):last-child) td:nth-child(2),
+  .printable-page .vp-doc .checklist-table table th:nth-child(2),
+  .printable-page .vp-doc .checklist-table table td:nth-child(2),
   .printable-page .vp-doc table:has(th:nth-child(5):last-child) th:nth-child(2),
   .printable-page .vp-doc table:has(th:nth-child(5):last-child) td:nth-child(2) {
     font-size: 1.4em;

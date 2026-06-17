@@ -6,6 +6,8 @@
 [サービス利用契約書](/templates/user-service-contract) と [重要事項説明書](/templates/important-matters-notice) は**それぞれ独立した書類**です。契約書と混ぜず、別々に印刷・保管してください。
 :::
 
+<div class="doc-index-table">
+
 | 書類 | 用途 | 雛形 |
 |------|------|------|
 | 重要事項説明書 | 利用開始前の説明・同意 | [雛形を開く](/templates/important-matters-notice) |
@@ -14,6 +16,8 @@
 | 工賃規程 | 工賃の算定・支払い | [雛形を開く](/templates/wage-regulations) |
 | 組織図 | 運営体制・指定申請 | [雛形を開く](/templates/organization-chart)（スプレッドシート） |
 | 個別支援計画 | 利用開始後の支援計画 | [雛形を開く](/templates/individual-support-plan) |
+
+</div>
 
 ::: warning 使い方
 <span class="edit-field">赤文字</span> の箇所を事業所の内容に合わせて修正し、印刷してご利用ください。使用前に上位店または専門家に確認してください。
