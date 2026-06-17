@@ -123,6 +123,8 @@ pageClass: contract-print
 </div>
 </div>
 
+</div>
+
 <div class="no-print doc-nav-links">
 
 [← 人員採用と勤務体制](/07-staff) | [支援スタッフ雇用契約書 →](/templates/employment-contract-staff)

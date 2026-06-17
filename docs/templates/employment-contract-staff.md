@@ -132,6 +132,8 @@ pageClass: contract-print
 </div>
 </div>
 
+</div>
+
 <div class="no-print doc-nav-links">
 
 [← サビ管雇用契約書](/templates/employment-contract-sabikan) | [利用者サービス利用契約書 →](/templates/user-service-contract)
