@@ -15,7 +15,7 @@ B型事業所と利用者の関係は**雇用関係ではありません**。利
 ::: warning 使い方
 <span class="edit-field">赤文字</span> の箇所は、事業所・開設者ごとに修正してください。締結前に必ず上位店または専門家に確認してください。利用者本人が契約能力を有しない場合は、法定代理人・後見人等の署名が必要になる場合があります。
 
-[重要事項説明書](/templates/important-matters-notice) は**別の書類**です。契約書と混ぜず、個別に印刷してください。
+[重要事項説明書](/templates/important-matters-notice) は**別の書類**です。契約書と混ぜず、個別にダウンロードしてください。
 :::
 
 </div>
@@ -161,6 +161,6 @@ B型事業所と利用者の関係は**雇用関係ではありません**。利
 
 [← 支援スタッフ 雇用契約書兼労働条件通知書](/templates/employment-contract-staff) | [重要事項説明書 →](/templates/important-matters-notice)
 
-関連する規程・添付書類は [添付書類・規程一覧](/templates/attached-documents) から個別に印刷してください。
+関連する規程・添付書類は [添付書類・規程一覧](/templates/attached-documents) から個別にダウンロードしてください。
 
 </div>

@@ -358,7 +358,7 @@
   text-align: left;
 }
 
-/* ===== 印刷ボタン ===== */
+/* ===== ダウンロードボタン ===== */
 .print-button-wrap {
   display: flex;
   justify-content: flex-end;

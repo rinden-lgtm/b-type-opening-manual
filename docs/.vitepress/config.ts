@@ -50,6 +50,7 @@ export default defineConfig({
             items: [
               { text: '一覧', link: '/templates/attached-documents' },
               { text: '利用規約・運営規程', link: '/templates/facility-rules' },
+              { text: '協力医療機関協定書', link: '/templates/medical-institution-agreement' },
               { text: '個人情報保護方針', link: '/templates/privacy-policy' },
               { text: '工賃規程', link: '/templates/wage-regulations' },
               { text: '個別支援計画', link: '/templates/individual-support-plan' },
@@ -118,6 +119,7 @@ export default defineConfig({
             items: [
               { text: '一覧', link: '/templates/attached-documents' },
               { text: '利用規約・運営規程', link: '/templates/facility-rules' },
+              { text: '協力医療機関協定書', link: '/templates/medical-institution-agreement' },
               { text: '個人情報保護方針', link: '/templates/privacy-policy' },
               { text: '工賃規程', link: '/templates/wage-regulations' },
               { text: '個別支援計画', link: '/templates/individual-support-plan' },

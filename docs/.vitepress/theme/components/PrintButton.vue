@@ -1,85 +1,23 @@
 <script setup lang="ts">
 import { useRoute } from 'vitepress'
-import { computed, watch, onMounted } from 'vue'
-
-const CONTRACT_PATHS = [
-  '/templates/employment-contract-sabikan',
-  '/templates/employment-contract-staff',
-  '/templates/user-service-contract',
-  '/templates/important-matters-notice',
-  '/templates/facility-rules',
-  '/templates/privacy-policy',
-  '/templates/wage-regulations',
-  '/templates/individual-support-plan',
-]
+import { watch, onMounted } from 'vue'
+import { CHECKBOX_PATHS, findDownload } from '../template-downloads'
 
 const route = useRoute()
 
-const EMPLOYMENT_CONTRACT_PATHS = [
-  '/templates/employment-contract-sabikan',
-  '/templates/employment-contract-staff',
-]
-
-function usesInteractiveCheckboxes(path) {
-  return (
-    path === '/12-checklist' ||
-    path === '/02-schedule' ||
-    path.startsWith('/templates/')
-  )
+function normalizePath(path: string) {
+  return path.replace(/\/$/, '') || '/'
 }
-
-const isPrintable = computed(() => {
-  const path = route.path.replace(/\/$/, '') || '/'
-  if (
-    path === '/templates/organization-chart' ||
-    EMPLOYMENT_CONTRACT_PATHS.includes(path)
-  ) {
-    return false
-  }
-  return (
-    path === '/12-checklist' ||
-    path === '/02-schedule' ||
-    path.startsWith('/templates/')
-  )
-})
-
-const isContractPrint = computed(() => {
-  const path = route.path.replace(/\/$/, '') || '/'
-  return CONTRACT_PATHS.includes(path)
-})
-
-const isA3Print = computed(() => false)
-
-const isLandscapePrint = computed(() => {
-  const path = route.path.replace(/\/$/, '') || '/'
-  return path === '/templates/wage-regulations'
-})
 
 function updatePageClasses() {
   if (typeof document === 'undefined') return
-  document.documentElement.classList.toggle('printable-page', isPrintable.value)
-  document.documentElement.classList.toggle('contract-print', isContractPrint.value)
-  document.documentElement.classList.toggle('landscape-print', isLandscapePrint.value)
-  document.documentElement.classList.toggle('a3-print', isA3Print.value)
+  const path = normalizePath(route.path)
+  const download = findDownload(path)
+  document.documentElement.classList.toggle('printable-page', Boolean(download))
+  document.documentElement.classList.toggle('contract-print', Boolean(download?.contractPrint))
+  document.documentElement.classList.toggle('landscape-print', Boolean(download?.landscapePrint))
+  document.documentElement.classList.toggle('a3-print', false)
 }
-
-watch([isPrintable, isContractPrint, isLandscapePrint, isA3Print], () => {
-  updatePageClasses()
-  const path = route.path.replace(/\/$/, '') || '/'
-  if (usesInteractiveCheckboxes(path)) enableCheckboxes()
-}, { immediate: true })
-
-watch(() => route.path, () => {
-  updatePageClasses()
-  const path = route.path.replace(/\/$/, '') || '/'
-  if (usesInteractiveCheckboxes(path)) enableCheckboxes()
-})
-
-onMounted(() => {
-  updatePageClasses()
-  const path = route.path.replace(/\/$/, '') || '/'
-  if (usesInteractiveCheckboxes(path)) enableCheckboxes()
-})
 
 function enableCheckboxes() {
   if (typeof document === 'undefined') return
@@ -90,25 +28,17 @@ function enableCheckboxes() {
   })
 }
 
-function handlePrint() {
-  const originalTitle = document.title
-  document.title = ' '
-  window.addEventListener(
-    'afterprint',
-    () => {
-      document.title = originalTitle
-    },
-    { once: true },
-  )
-  window.print()
-}
+watch(() => route.path, () => {
+  updatePageClasses()
+  const path = normalizePath(route.path)
+  if (CHECKBOX_PATHS.has(path)) enableCheckboxes()
+}, { immediate: true })
+
+onMounted(() => {
+  updatePageClasses()
+  const path = normalizePath(route.path)
+  if (CHECKBOX_PATHS.has(path)) enableCheckboxes()
+})
 </script>
 
-<template>
-  <div v-if="isPrintable" class="print-button-wrap">
-    <button type="button" class="print-button" @click="handlePrint">
-      <span aria-hidden="true">🖨</span>
-      {{ isContractPrint ? '書類として印刷' : '印刷する' }}
-    </button>
-  </div>
-</template>
+<template />

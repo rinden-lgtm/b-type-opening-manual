@@ -11,7 +11,7 @@ pageClass: contract-print
 ::: warning 使い方
 <span class="edit-field">赤文字</span> は修正が必要な箇所です。記入欄（点線・枠内）に十分なスペースがあります。
 
-[サービス利用契約書](/templates/user-service-contract) とは**別の書類**です。それぞれ個別に印刷してください。
+[サービス利用契約書](/templates/user-service-contract) とは**別の書類**です。それぞれ個別にダウンロードしてください。
 :::
 
 </div>

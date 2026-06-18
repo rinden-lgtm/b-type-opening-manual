@@ -2,19 +2,14 @@ import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import PrintButton from './components/PrintButton.vue'
-import OrganizationChartDownload from './components/OrganizationChartDownload.vue'
-import EmploymentContractDownload from './components/EmploymentContractDownload.vue'
+import TemplateDownload from './components/TemplateDownload.vue'
 import './custom.css'
 
 export default {
   extends: DefaultTheme,
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
-      'doc-before': () => [
-        h(PrintButton),
-        h(OrganizationChartDownload),
-        h(EmploymentContractDownload),
-      ],
+      'doc-before': () => [h(PrintButton), h(TemplateDownload)],
     })
   },
 } satisfies Theme

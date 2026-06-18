@@ -6,10 +6,11 @@
   "description": "就労継続支援B型 開設準備手引書",
   "scripts": {
     "docs:dev": "vitepress dev docs",
-    "docs:build": "node scripts/generate-organization-chart-spreadsheet.mjs && node scripts/generate-employment-contract-spreadsheets.mjs && vitepress build docs",
+    "docs:build": "node scripts/generate-organization-chart-spreadsheet.mjs && node scripts/generate-employment-contract-spreadsheets.mjs && node scripts/generate-template-spreadsheets.mjs && vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "generate:org-chart": "node scripts/generate-organization-chart-spreadsheet.mjs",
-    "generate:employment-contracts": "node scripts/generate-employment-contract-spreadsheets.mjs"
+    "generate:employment-contracts": "node scripts/generate-employment-contract-spreadsheets.mjs",
+    "generate:templates": "node scripts/generate-template-spreadsheets.mjs"
   },
   "devDependencies": {
     "exceljs": "^4.4.0",
